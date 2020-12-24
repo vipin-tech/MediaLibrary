@@ -12,7 +12,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 
 * **URL**
 
-  <_v1/media/add_>
+  <_/v1/media/add_>
 
 * **Method**
 
@@ -52,7 +52,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 
 * **URL**
 
-  <_v1/media/edit_>
+  <_/v1/media/edit_>
 
 * **Method**
 
@@ -87,7 +87,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 
 * **URL**
 
-  <_v1/media/delete_>
+  <_/v1/media/delete_>
 
 * **Method**
 
@@ -122,7 +122,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 
 * **URL**
 
-  <_v1/media/view/<mediaName>_>
+  <_/v1/media/view/<mediaName>_>
 
 * **Method**
 
