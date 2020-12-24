@@ -7,7 +7,21 @@ Application allows users to add, edit, delete, view and categorise the media ite
 This application is developed using Django Web Framework, sqlite3 is used for persistent storage.
 
 
-**Add Media Item to the Catalog**
+- Prerequites for this application
+  - python 3.x.x
+  - django 3.x.x
+
+
+- How to run this application?
+  - Clone this repository
+  - Go to the MediaLibrary folder
+  - Run the command `python manage.py runserver`
+
+
+## API Specification
+
+
+#### Add Media Item to the Catalog
 ---
 
 **Adding media item to the Media Library**
