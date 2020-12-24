@@ -20,6 +20,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
   - Go to the MediaLibrary folder
   - Run the command `python manage.py runserver`
 
+## Homeage
+
 <p align="center">
   <img src="./MediaLibrary/HomePage.png">
 </p>
