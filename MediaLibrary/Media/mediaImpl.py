@@ -28,9 +28,9 @@ class MediaImpl(GenericImpl):
             ret_val = {'responseCode': 200, 'message': 'Item inserted successfully'}
 
         except (DatabaseError, DataError, OperationalError) as ex:
-            ret_val = {'responseCode': 500, 'message': 'Error while inserting the element in database.'}
+            ret_val = {'responseCode': 500, 'message': 'Error while inserting the element in database'}
         except Exception as ex:
-            ret_val = {'responseCode': 500, 'message': 'Unknown Exception.'}
+            ret_val = {'responseCode': 500, 'message': 'Unknown Exception'}
 
         return ret_val
 
@@ -52,11 +52,11 @@ class MediaImpl(GenericImpl):
             ret_val = {'responseCode': 200, 'message': 'Item updated successfully'}
 
         except ObjectDoesNotExist as ex:
-            ret_val = {'responseCode': 404, 'message': 'Media item does not exist in database.'}
+            ret_val = {'responseCode': 404, 'message': 'Media item does not exist in database'}
         except (DatabaseError, DataError, OperationalError) as ex:
-            ret_val = {'responseCode': 500, 'message': 'Error while updating the item in database.'}
+            ret_val = {'responseCode': 500, 'message': 'Error while updating the item in database'}
         except Exception as ex:
-            ret_val = {'responseCode': 500, 'message': 'Unknown Exception.'}
+            ret_val = {'responseCode': 500, 'message': 'Unknown Exception'}
 
         return ret_val
 
@@ -77,9 +77,9 @@ class MediaImpl(GenericImpl):
             ret_val = {'responseCode': 200, 'message': 'Item deleted successfully'}
 
         except ObjectDoesNotExist as ex:
-            ret_val = {'responseCode': 404, 'message': 'Media item {} does not exist in database.'.format(media_name)}
+            ret_val = {'responseCode': 404, 'message': 'Media item {} does not exist in database'.format(media_name)}
         except (DatabaseError, DataError, OperationalError) as ex:
-            ret_val = {'responseCode': 500, 'message': 'Error while deleting the item from database.'}
+            ret_val = {'responseCode': 500, 'message': 'Error while deleting the item from database'}
         except Exception as ex:
             ret_val = {'responseCode': 500, 'message': 'Unknown Exception.'}
 
@@ -91,17 +91,25 @@ class MediaImpl(GenericImpl):
 
         :return: List of media items [{'timestamp': '***', 'mediaName': '***', 'mediaType': '***'}, ...]
         """
-        # Get all media items
-        query_obj = models.Media.objects.all()
-        result = list()
+        try:
+            # Get all media items
+            query_obj = models.Media.objects.all()
+            result, ret_val = list(), dict()
 
-        # Iterate through the list of media items.
-        for media_item in query_obj:
-            result.append({'timeStamp': datetime.strftime(media_item.created_at, "%d/%m/%Y %H:%M:%S"),
-                           'mediaName': media_item.media_name,
-                           'mediaType': media_item.media_type})
+            # Iterate through the list of media items.
+            for media_item in query_obj:
+                result.append({'timeStamp': datetime.strftime(media_item.created_at, "%d/%m/%Y %H:%M:%S"),
+                               'mediaName': media_item.media_name,
+                               'mediaType': media_item.media_type})
 
-        return result
+            return result
+
+        except (DatabaseError, DataError, OperationalError) as ex:
+            ret_val = {'responseCode': 500, 'message': 'Error while fetching items from database'}
+        except Exception as ex:
+            ret_val = {'responseCode': 500, 'message': 'Unknown Exception.'}
+
+        return ret_val
 
     def mediaItemByName(self, media_name: str):
         """
@@ -110,8 +118,12 @@ class MediaImpl(GenericImpl):
         :param media_name: Media Name of the media_item.
         :return: Query Object
         """
-
-        return models.Media.objects.get(media_name=media_name)
+        try:
+            return models.Media.objects.get(media_name=media_name)
+        except (DatabaseError, DataError, OperationalError) as ex:
+            raise
+        except Exception as ex:
+            raise
 
     def mediaItemByType(self, media_type: str):
         """
@@ -120,5 +132,9 @@ class MediaImpl(GenericImpl):
         :param media_type: Media Type of the Media Item.
         :return: Query Object
         """
-
-        return models.Media.objects.filter(media_type=media_type)
+        try:
+            return models.Media.objects.filter(media_type=media_type)
+        except (DatabaseError, DataError, OperationalError) as ex:
+            raise
+        except Exception as ex:
+            raise
