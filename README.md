@@ -122,7 +122,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 
 * **URL**
 
-  <_`/v1/media/view/<mediaName>`_>
+  <_`/v1/media/view/<mediaType>`_>
 
 * **Method**
 
