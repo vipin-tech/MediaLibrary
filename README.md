@@ -2,6 +2,9 @@
 
 Application that allows users to curate their media libraries
 
+## Application Details
+
+
 Application allows users to add, edit, delete, view and categorise the media items. The media types supported are Movies, Music and Games. 
 
 This application is developed using Django Web Framework, sqlite3 is used for persistent storage.
@@ -186,3 +189,10 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
   
   * **Code:** 500 <br />
     **Response:** `{ responseCode : 500, message : "Error while fetching items from database" }`
+
+
+## Output Screenshot
+
+  <p align="center">
+    <img src="./MediaLibrary/Output.png">
+  </p>
