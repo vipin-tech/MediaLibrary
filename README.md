@@ -21,7 +21,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 ## API Specification
 
 
-#### Add Media Item to the Catalog
+### Add Media Item to the Catalog
 ---
 
 **Adding media item to the Media Library**
@@ -63,7 +63,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
     
     
     
- **Update Media Item in the Catalog**
+ ### Update Media Item in the Catalog
 ---
 
 **Updating media item in the Media Library**
@@ -100,7 +100,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
     
     
     
-**Delete Media Item in the Catalog**
+### Delete Media Item in the Catalog
 ---
 
 **Removing media item in the Media Library**
@@ -137,7 +137,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
     
 
     
-**Categorize Media Items in the Catalog**
+### Categorize Media Items in the Catalog
 ---
 
 **Categorizing media items by media type in the Media Library**
@@ -161,7 +161,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
     **Response:** `{ responseCode : 500, message : "Error while fetching items from database" }`
     
  
- **View Media Items in the Catalog**
+ ### View Media Items in the Catalog
 ---
 
 **Viewing media items in the Media Library**
