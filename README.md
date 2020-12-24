@@ -10,6 +10,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 **Add Media Item to the Catalog**
 ---
 
+**Adding media item to the Media Library**
+
 * **URL**
 
   <_`/v1/media/add`_>
@@ -50,6 +52,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
  **Update Media Item in the Catalog**
 ---
 
+**Updating media item in the Media Library**
+
 * **URL**
 
   <_`/v1/media/edit`_>
@@ -84,6 +88,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
     
 **Delete Media Item in the Catalog**
 ---
+
+**Removing media item in the Media Library**
 
 * **URL**
 
@@ -120,6 +126,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 **Categorize Media Items in the Catalog**
 ---
 
+**Categorizing media items by media type in the Media Library**
+
 * **URL**
 
   <_`/v1/media/view/<mediaType>`_>
@@ -141,6 +149,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
  
  **View Media Items in the Catalog**
 ---
+
+**Viewing media items in the Media Library**
 
 * **URL**
 
