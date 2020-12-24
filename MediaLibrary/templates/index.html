@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Media Library
+    </title>
+  </head>
+
+  <script>
+      function AddItem(){
+            let additem = document.querySelector('.additem');
+            let name = document.querySelector('#name');
+            let type = document.querySelector('#type');
+
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "media/add";
+
+            // open a connection
+            xhr.open("POST", url, true);
+
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    // Print received data from server
+                    var json = JSON.parse(this.responseText);
+                    additem.innerHTML = json.message;
+
+                }
+            };
+
+            // Converting JSON data to string
+            var data = JSON.stringify({ "mediaName": name.value, "mediaType": type.value });
+            // Sending data with the request
+            xhr.send(data);
+        }
+
+       function EditItem(){
+
+            let edititem = document.querySelector('.edititem');
+            let name = document.querySelector('#editname');
+            let newname = document.querySelector('#newname');
+
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "media/edit";
+
+            // open a connection
+            xhr.open("PUT", url, true);
+
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    // Print received data from server
+                    var json = JSON.parse(this.responseText);
+                   edititem.innerHTML = json.message;
+
+                }
+            };
+
+            // Converting JSON data to string
+            var data = JSON.stringify({ "mediaName": name.value, "newMediaName": newname.value });
+            // Sending data with the request
+            xhr.send(data);
+        }
+
+       function DeleteItem(){
+
+            let deleteitem = document.querySelector('.deleteitem');
+            let name = document.querySelector('#delname');
+
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "media/delete";
+
+            // open a connection
+            xhr.open("DELETE", url, true);
+
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    // Print received data from server
+                    var json = JSON.parse(this.responseText);
+                    deleteitem.innerHTML = json.message;
+
+                }
+            };
+
+            // Converting JSON data to string
+            var data = JSON.stringify({ "mediaName": name.value});
+            // Sending data with the request
+            xhr.send(data);
+       }
+
+      function ViewItem(){
+
+            let viewitem = document.querySelector('.viewitem');
+
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "media/view";
+
+            // open a connection
+            xhr.open("GET", url, true);
+
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    var result = "<table style=\"margin-left: auto;margin-right:auto;border: 1px solid black;\"><tr><th>TimeStamp</th><th>MediaName</th><th>MediaType</th></tr>"
+                    // Print received data from server
+                    data = JSON.parse(this.responseText)
+
+                    for (var i=0; i < data.length; i++){
+                        result += "<tr><td>" + data[i].timeStamp + "</td>" + "<td>"+ data[i].mediaName + "</td>" +
+                        "<td>" +data[i].mediaType + "</td>"
+                    }
+                    viewitem.innerHTML = result;
+                 }
+            };
+            xhr.send();
+      }
+
+      function CategoriseItem(){
+
+            let mediatype = document.querySelector('#cmediatype');
+            let categoriseitem = document.querySelector('.categoriseitem');
+
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "media/view/";
+
+            // open a connection
+            xhr.open("GET", url+mediatype.value, true);
+
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    // Print received data from server
+                    var result = "<table style=\"margin-left: auto;margin-right:auto;border: 1px solid black;\"><tr><th>TimeStamp</th><th>MediaName</th><th>MediaType</th></tr>"
+                    // Print received data from server
+                    data = JSON.parse(this.responseText)
+
+                    for (var i=0; i < data.length; i++){
+                        result += "<tr><td>" + data[i].timeStamp + "</td>" + "<td>"+ data[i].mediaName + "</td>" +
+                        "<td>" +data[i].mediaType + "</td>"
+                    }
+                    categoriseitem.innerHTML = result;
+                 }
+            };
+            xhr.send();
+      }
+
+  </script>
+
+  <body style="text-align:center;" id="body">
+    <h1 style="color:green;">
+      Media Library
+    </h1>
+
+    <p>
+        <h4 style="color:black;">
+            Add Item to the Media Catalog
+        </h4>
+        <!-- Making a text input -->
+        <input type="text" id="name" name="mediaName" placeholder="Media Name">
+        <input type="text" id="type" name="mediaType" placeholder="Media Type">
+
+        <!-- Button to send data -->
+        <button onclick="AddItem()">Add Item</button>
+
+      <!-- For printing result from server -->
+      <p class="additem" style="color:green"></p>
+
+    <p>
+        <h4 style="color:black; text-align:30px;">
+            Update Item in the Media Catalog
+        </h4>
+        <!-- Making a text input -->
+        <input type="text" id="editname" name="mediaName" placeholder="Media Name">
+        <input type="text" id="newname" name="newMediaName" placeholder="New Media Name">
+
+        <!-- Button to send data -->
+        <button onclick="EditItem()">Edit Item</button>
+
+      <!-- For printing result from server -->
+      <p class="edititem" style="color:green"></p>
+
+    <p>
+        <h4 style="color:black;">
+            Delete Item in the Media Catalog
+        </h4>
+        <!-- Making a text input -->
+        <input type="text" id="delname" name="mediaName" placeholder="Media Name">
+
+        <!-- Button to send data -->
+        <button onclick="DeleteItem()">Delete Item</button>
+
+      <!-- For printing result from server -->
+      <p class="deleteitem" style="color:green"></p>
+
+
+      <p>
+        <h4 style="color:black;">
+            Categorise the media items by media type
+        </h4>
+
+        <select name="MediaType" id="cmediatype">
+            <option value="Music">Music</option>
+            <option value="Movies">Movies</option>
+            <option value="Games">Games</option>
+        </select>
+        <!-- Button to send data -->
+        <button onclick="CategoriseItem()">Categorise Items</button>
+
+      <!-- For printing result from server -->
+      <p class="categoriseitem" style="color:green;"></p>
+
+       <p>
+        <h4 style="color:black;">
+            List all the items in the Media Catalog
+        </h4>
+        <!-- Button to send data -->
+        <button onclick="ViewItem()">View Items</button>
+
+      <!-- For printing result from server -->
+      <p class="viewitem" style="color:green"></p>
+
+  </body>
+</html>
