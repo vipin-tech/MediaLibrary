@@ -51,7 +51,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ responseCode : 200, message : "Item inserted successfully" }`
+    **Response:** `{ responseCode : 200, message : "Item inserted successfully" }`
  
 * **Error Response:**
     
@@ -94,7 +94,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ responseCode : 200, message : "Item updated successfully" }`
+    **Response:** `{ responseCode : 200, message : "Item updated successfully" }`
  
 * **Error Response:**
   
@@ -131,7 +131,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ responseCode : 200, message : "Item deleted successfully" }`
+    **Response:** `{ responseCode : 200, message : "Item deleted successfully" }`
  
 * **Error Response:**
   
@@ -161,7 +161,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
+    **Response:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
  
 * **Error Response:**
   
@@ -185,7 +185,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
+    **Response:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
  
 * **Error Response:**
   
