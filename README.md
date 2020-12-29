@@ -2,6 +2,9 @@
 
 Application that allows users to curate their media libraries
 
+## Application Details
+
+
 Application allows users to add, edit, delete, view and categorise the media items. The media types supported are Movies, Music and Games. 
 
 This application is developed using Django Web Framework, sqlite3 is used for persistent storage.
@@ -16,6 +19,8 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
   - Clone this repository
   - Go to the MediaLibrary folder
   - Run the command `python manage.py runserver`
+
+## Homeage
 
 <p align="center">
   <img src="./MediaLibrary/HomePage.png">
@@ -46,7 +51,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ responseCode : 200, message : "Item inserted successfully" }`
+    **Response:** `{ responseCode : 200, message : "Item inserted successfully" }`
  
 * **Error Response:**
     
@@ -89,7 +94,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ responseCode : 200, message : "Item updated successfully" }`
+    **Response:** `{ responseCode : 200, message : "Item updated successfully" }`
  
 * **Error Response:**
   
@@ -126,7 +131,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ responseCode : 200, message : "Item deleted successfully" }`
+    **Response:** `{ responseCode : 200, message : "Item deleted successfully" }`
  
 * **Error Response:**
   
@@ -156,7 +161,7 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
+    **Response:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
  
 * **Error Response:**
   
@@ -180,9 +185,16 @@ This application is developed using Django Web Framework, sqlite3 is used for pe
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
+    **Response:** `[{"timeStamp": 23/12/2020 14:55:19, "mediaName": "Call of Duty", "mediaType": "Games"}, ...]`
  
 * **Error Response:**
   
   * **Code:** 500 <br />
     **Response:** `{ responseCode : 500, message : "Error while fetching items from database" }`
+
+
+## Output Screenshot
+
+  <p align="center">
+    <img src="./MediaLibrary/Output.png">
+  </p>
