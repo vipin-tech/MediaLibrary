@@ -16,7 +16,7 @@ class MediaImpl(GenericImpl):
     def __init__(self):
         GenericImpl.__init__(self)
 
-    def addMediaItem(self, **kwargs: dict):
+    def addMediaItem(self, **kwargs: dict) -> dict:
         """
         Add an item to the media catalog.
 
@@ -34,7 +34,7 @@ class MediaImpl(GenericImpl):
 
         return ret_val
 
-    def editMediaItem(self, **kwargs: dict):
+    def editMediaItem(self, **kwargs: dict) -> dict:
         """
         :param kwargs: dictionary {'media_name': '***', 'new_media_name': '***'}
         :return: dictionary {'responseCode': ***, 'message': '*****'}
@@ -60,7 +60,7 @@ class MediaImpl(GenericImpl):
 
         return ret_val
 
-    def deleteMediaItem(self, media_name: str):
+    def deleteMediaItem(self, media_name: str) -> dict:
         """
         Delete an Item from the media catalog.
 
@@ -85,7 +85,7 @@ class MediaImpl(GenericImpl):
 
         return ret_val
 
-    def displayMediaItem(self):
+    def displayMediaItem(self) -> list:
         """
         Display all items in the media catalog.
 
@@ -111,7 +111,7 @@ class MediaImpl(GenericImpl):
 
         return ret_val
 
-    def mediaItemByName(self, media_name: str):
+    def mediaItemByName(self, media_name: str) -> object:
         """
         Helper method to get media item by name.
 
@@ -125,7 +125,7 @@ class MediaImpl(GenericImpl):
         except Exception as ex:
             raise
 
-    def mediaItemByType(self, media_type: str):
+    def mediaItemByType(self, media_type: str) -> object:
         """
         Helper method to get all media items by media type.
 

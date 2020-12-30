@@ -14,7 +14,7 @@ def mediaHome(request: object):
     return render(request, 'index.html', {})
 
 @csrf_exempt
-def addItem(request: object):
+def addItem(request: object) -> object:
     """
     Method adds the new media item to the media catalog.
 
@@ -41,7 +41,7 @@ def addItem(request: object):
 
 
 @csrf_exempt
-def editItem(request: object):
+def editItem(request: object) -> object:
     """
     Method used to edit the media item stored in the catalog.
 
@@ -58,7 +58,7 @@ def editItem(request: object):
 
 
 @csrf_exempt
-def deleteItem(request: object):
+def deleteItem(request: object) -> object:
     """
     Method used to delete the media item from the media catalog.
 
@@ -73,12 +73,13 @@ def deleteItem(request: object):
     return JsonResponse(response)
 
 
-def displayItem(request: object, mediatype=None):
+def displayItem(request: object, mediatype=None) -> object:
     """
     Method used to display all the media items stored in the catalog. It also categorises the media items
     by mediatype.
 
     :param request: Request Object
+    :param mediatype: Media Type of media item
     :return: Returns the JSON response {'responseCode': ***, 'message': '*****'}
     """
 
@@ -90,7 +91,7 @@ def displayItem(request: object, mediatype=None):
     return JsonResponse(response, safe=False)
 
 
-def mediaItemByName(media_name: str):
+def mediaItemByName(media_name: str) -> object:
     """
     Helper method used to get media item by name.
 
@@ -104,7 +105,7 @@ def mediaItemByName(media_name: str):
         pass
 
 
-def categoriseItem(media_type: str):
+def categoriseItem(media_type: str) -> object:
     """
     Helper method used to categorise the media items based on the media_type.
 
